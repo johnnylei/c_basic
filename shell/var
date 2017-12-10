@@ -1,0 +1,23 @@
+#!/bin/bash
+name="johnny"
+echo $name
+unset name
+echo $name
+
+qmg_erp="http://www.qmgxxx.com"
+readonly qmg_erp
+# qmg_erp="http:www.qmxx.com"
+
+# 输出字符串长度
+echo ${#qmg_erp}
+
+# 截取字符串
+echo ${qmg_erp:0:4}
+
+# 数组
+score=(100 60 500 95)
+echo ${score[@]}
+
+# 元数个数
+length=${#score[@]}
+echo $length

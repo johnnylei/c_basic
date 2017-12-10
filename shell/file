@@ -1,0 +1,9 @@
+#!/bin/bash
+
+file="tmp"
+if [ ! -e $file ]
+then
+	echo "file does not exist"
+else
+	echo "file exist"
+fi

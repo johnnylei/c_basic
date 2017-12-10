@@ -1,0 +1,19 @@
+#!/bin/bash
+#author johnny 
+
+echo "shell params"
+echo "pid is $$"
+echo "the number of params:$#"
+echo "the params:$*"
+echo "the params:$@"
+echo "program : $0"
+echo "first param: $1"
+echo "second param: $2"
+echo "third param: $3"
+
+echo "-- \$* 演示 ---"
+for i in "$*"
+do
+    echo $i
+done
+

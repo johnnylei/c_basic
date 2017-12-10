@@ -1,0 +1,18 @@
+#!/bin/bash
+# author: johnny
+
+arr=(johnny nioclas "lei")
+
+echo ${arr[0]}
+echo ${arr[1]}
+echo ${arr[2]}
+
+# 输出所有元数
+echo "输出所有元数"
+echo ${arr[*]}
+echo ${arr[@]}
+
+# 输出数组长度
+echo "输出数组长度"
+echo ${#arr[*]}
+echo ${#arr[@]}
