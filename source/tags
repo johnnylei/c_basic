@@ -4,79 +4,92 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
-BYTE	typedef.c	/^typedef char BYTE;$/;"	t	file:
-Book	struct.c	/^struct Book {$/;"	s	file:
-Book	struct_book.c	/^struct Book {$/;"	s	file:
-Data	union.c	/^union Data {$/;"	u	file:
-FD	typedef.c	/^typedef int FD;$/;"	t	file:
-LENGTH	defind.c	2;"	d	file:
-MAX	point.c	57;"	d	file:
-NEW_LINE	defind.c	4;"	d	file:
-Node	tree.c	/^struct Node {$/;"	s	file:
-SWAP	_sort.c	3;"	d	file:
-WIDTH	defind.c	3;"	d	file:
-_log	point.c	/^void _log (void (*target)(char *, int)) {$/;"	f
-adjust_heap	_sort.c	/^void adjust_heap(int *arr, int i, int size) {$/;"	f
-arr	point.c	/^int arr() {$/;"	f
-arr2	point.c	/^int arr2() {$/;"	f
-author	struct_book.c	/^	char  author[50];$/;"	m	struct:Book	file:
-basic	point.c	/^int basic() {$/;"	f
-book_id	struct_book.c	/^	int book_id;$/;"	m	struct:Book	file:
-book_pointer_print	struct_book.c	/^void book_pointer_print(struct Book *book) {$/;"	f
-book_print	struct_book.c	/^void book_print(struct Book book, void (*target)(struct Book )) {$/;"	f
-bubble	_sort.c	/^void bubble(int *arr, int size) {$/;"	f
-build_heap	_sort.c	/^void build_heap(int *arr, int size) {$/;"	f
-change_book	struct.c	/^void change_book(struct Book book) {$/;"	f
-count	extern.c	/^int count;$/;"	v
-count	static.c	/^static int count = 10;$/;"	v	file:
-create_node	tree.c	/^struct Node create_node (int data) {$/;"	f
-create_tree	tree.c	/^struct Node create_tree(int *arr, int size) {$/;"	f
-data	struct.c	/^	int data;$/;"	m	struct:Book	file:
-data	tree.c	/^	int data;$/;"	m	struct:Node	file:
-f	union.c	/^	float f;$/;"	m	union:Data	file:
-file_target	struct_book.c	/^void file_target(struct Book book) {$/;"	f
-first	point.c	/^int first() {$/;"	f
-func	static.c	/^void func(void) {$/;"	f
-getAverage	point.c	/^double getAverage(int *arr, int size) {$/;"	f
-getRandom	point.c	/^int * getRandom() {$/;"	f
-getSeconds	point.c	/^void getSeconds(unsigned long *par) {$/;"	f
-hanno	hanno.c	/^void hanno(int n, char a, char b, char c) {$/;"	f
-heap	_sort.c	/^void heap(int *arr, int size) {$/;"	f
-i	union.c	/^	int i;$/;"	m	union:Data	file:
-insert_node	tree.c	/^void insert_node(struct Node *root,int data) {$/;"	f
-left	tree.c	/^	struct Node * left;$/;"	m	struct:Node	typeref:struct:Node::Node	file:
-main	addressc.c	/^int main() {$/;"	f
-main	arr.c	/^int main() {$/;"	f
-main	const.c	/^int main() {$/;"	f
-main	defind.c	/^int main() {$/;"	f
-main	extern.c	/^int main() {$/;"	f
-main	float.c	/^int main() {$/;"	f
-main	hanno.c	/^int main() {$/;"	f
-main	point.c	/^int main() {$/;"	f
-main	size_int.c	/^int main() {$/;"	f
-main	sort.c	/^int main() {$/;"	f
-main	static.c	/^int main() {$/;"	f
-main	struct.c	/^int main () {$/;"	f
-main	struct_book.c	/^int main () {$/;"	f
-main	tree.c	/^int main () {$/;"	f
-main	typedef.c	/^int main() {$/;"	f
-main	union.c	/^int main () {$/;"	f
-max	point.c	/^int max(int x, int y) {$/;"	f
-modify_book	struct.c	/^void modify_book(struct Book *book) {$/;"	f
-pointer_arr	point.c	/^int pointer_arr() {$/;"	f
-pre_order	tree.c	/^void pre_order(struct Node root) {$/;"	f
-print_arr	sort.c	/^void print_arr(int *arr, int size, void (*target)(int *, int)) {$/;"	f
-quick	_sort.c	/^void quick(int *arr, int start, int end) {$/;"	f
-right	tree.c	/^	struct Node * right;	$/;"	m	struct:Node	typeref:struct:Node::Node	file:
-secondary_point	point.c	/^int secondary_point() {$/;"	f
-shell	_sort.c	/^void shell(int *arr, int size) {$/;"	f
-str	union.c	/^	char str[20];$/;"	m	union:Data	file:
-str_arr	point.c	/^int str_arr() {$/;"	f
-subject	struct_book.c	/^	char  subject[50];$/;"	m	struct:Book	file:
-target	point.c	/^void target(char *str, int size) {$/;"	f
-target	sort.c	/^void target(int *arr, int size) {$/;"	f
-target	struct_book.c	/^void target(struct Book book) {$/;"	f
-test	arr.c	/^int test(double arr[]) {$/;"	f
-title	struct_book.c	/^	char  title[50];$/;"	m	struct:Book	file:
-treble_quick	_sort.c	/^void treble_quick(int *arr, int start, int end) {$/;"	f
-write_extern	support.c	/^void write_extern(void) {$/;"	f
+APPLIACTION	Makefile	/^APPLIACTION = sort$/;"	m
+BYTE	src/typedef.c	/^typedef char BYTE;$/;"	t	file:
+Book	src/struct.c	/^struct Book {$/;"	s	file:
+Book	src/struct_book.c	/^struct Book {$/;"	s	file:
+C_FILE_LIST	Makefile	/^C_FILE_LIST = $(foreach dir, src, $(wildcard $(dir)\/*.c))$/;"	m
+D_FILE_LIST	Makefile	/^D_FILE_LIST = $(patsubst src\/%.c, compiled\/%.d, $(C_FILE_LIST))$/;"	m
+Data	src/union.c	/^union Data {$/;"	u	file:
+FD	src/typedef.c	/^typedef int FD;$/;"	t	file:
+LENGTH	src/defind.c	2;"	d	file:
+MAX	src/point.c	57;"	d	file:
+NEW_LINE	src/defind.c	4;"	d	file:
+Node	src/tree.c	/^struct Node {$/;"	s	file:
+O_FILE_LIST	Makefile	/^O_FILE_LIST = $(patsubst src\/%.c, compiled\/%.o, $(C_FILE_LIST))$/;"	m
+SWAP	src/_sort.c	3;"	d	file:
+WIDTH	src/defind.c	3;"	d	file:
+_log	src/point.c	/^void _log (void (*target)(char *, int)) {$/;"	f
+adjust_heap	src/_sort.c	/^void adjust_heap(int *arr, int i, int size) {$/;"	f
+arr	src/point.c	/^int arr() {$/;"	f
+arr2	src/point.c	/^int arr2() {$/;"	f
+author	src/struct_book.c	/^	char  author[50];$/;"	m	struct:Book	file:
+avg	src/avg.c	/^double avg(int num, ...) {$/;"	f
+basic	src/point.c	/^int basic() {$/;"	f
+book_id	src/struct_book.c	/^	int book_id;$/;"	m	struct:Book	file:
+book_pointer_print	src/struct_book.c	/^void book_pointer_print(struct Book *book) {$/;"	f
+book_print	src/struct_book.c	/^void book_print(struct Book book, void (*target)(struct Book )) {$/;"	f
+bubble	src/_sort.c	/^void bubble(int *arr, int size) {$/;"	f
+build_heap	src/_sort.c	/^void build_heap(int *arr, int size) {$/;"	f
+change_book	src/struct.c	/^void change_book(struct Book book) {$/;"	f
+count	src/extern.c	/^int count;$/;"	v
+count	src/static.c	/^static int count = 10;$/;"	v	file:
+create_node	src/tree.c	/^struct Node * create_node (int data) {$/;"	f
+create_tree	src/tree.c	/^struct Node * create_tree(int *arr, int size) {$/;"	f
+data	src/struct.c	/^	int data;$/;"	m	struct:Book	file:
+data	src/tree.c	/^	int data;$/;"	m	struct:Node	file:
+dynamic_malloc_memory	src/memory_manager.c	/^void dynamic_malloc_memory() {$/;"	f
+ergodic_dir	src/file_ergodic.c	/^void ergodic_dir(char * dir_name, char * prefix) {$/;"	f
+f	src/union.c	/^	float f;$/;"	m	union:Data	file:
+file_target	src/struct_book.c	/^void file_target(struct Book book) {$/;"	f
+first	src/point.c	/^int first() {$/;"	f
+func	src/static.c	/^void func(void) {$/;"	f
+getAverage	src/point.c	/^double getAverage(int *arr, int size) {$/;"	f
+getRandom	src/point.c	/^int * getRandom() {$/;"	f
+getSeconds	src/point.c	/^void getSeconds(unsigned long *par) {$/;"	f
+hanno	src/hanno.c	/^void hanno(int n, char a, char b, char c) {$/;"	f
+heap	src/_sort.c	/^void heap(int *arr, int size) {$/;"	f
+i	src/union.c	/^	int i;$/;"	m	union:Data	file:
+insert_node	src/tree.c	/^void insert_node(struct Node *root,int data) {$/;"	f
+left	src/tree.c	/^	struct Node * left;$/;"	m	struct:Node	typeref:struct:Node::Node	file:
+main	src/addressc.c	/^int main() {$/;"	f
+main	src/arr.c	/^int main() {$/;"	f
+main	src/avg.c	/^int main () {$/;"	f
+main	src/command_line.c	/^int main(int argc, char * argv[]) {$/;"	f
+main	src/const.c	/^int main() {$/;"	f
+main	src/defind.c	/^int main() {$/;"	f
+main	src/extern.c	/^int main() {$/;"	f
+main	src/file_ergodic.c	/^int main(int argc, char * argv[]) {$/;"	f
+main	src/float.c	/^int main() {$/;"	f
+main	src/hanno.c	/^int main() {$/;"	f
+main	src/memory_manager.c	/^int main() {$/;"	f
+main	src/point.c	/^int main() {$/;"	f
+main	src/size_int.c	/^int main() {$/;"	f
+main	src/sort.c	/^int main() {$/;"	f
+main	src/static.c	/^int main() {$/;"	f
+main	src/struct.c	/^int main () {$/;"	f
+main	src/struct_book.c	/^int main () {$/;"	f
+main	src/tmp.c	/^int main() {$/;"	f
+main	src/tree.c	/^int main () {$/;"	f
+main	src/typedef.c	/^int main() {$/;"	f
+main	src/union.c	/^int main () {$/;"	f
+max	src/point.c	/^int max(int x, int y) {$/;"	f
+modify_book	src/struct.c	/^void modify_book(struct Book *book) {$/;"	f
+pointer_arr	src/point.c	/^int pointer_arr() {$/;"	f
+pre_order	src/tree.c	/^void pre_order(struct Node * root) {$/;"	f
+print_arr	src/sort.c	/^void print_arr(int *arr, int size, void (*target)(int *, int)) {$/;"	f
+quick	src/_sort.c	/^void quick(int *arr, int start, int end) {$/;"	f
+right	src/tree.c	/^	struct Node * right;	$/;"	m	struct:Node	typeref:struct:Node::Node	file:
+secondary_point	src/point.c	/^int secondary_point() {$/;"	f
+shell	src/_sort.c	/^void shell(int *arr, int size) {$/;"	f
+str	src/union.c	/^	char str[20];$/;"	m	union:Data	file:
+str_arr	src/point.c	/^int str_arr() {$/;"	f
+subject	src/struct_book.c	/^	char  subject[50];$/;"	m	struct:Book	file:
+target	src/point.c	/^void target(char *str, int size) {$/;"	f
+target	src/sort.c	/^void target(int *arr, int size) {$/;"	f
+target	src/struct_book.c	/^void target(struct Book book) {$/;"	f
+test	src/arr.c	/^int test(double arr[]) {$/;"	f
+test	src/tmp.c	/^void test(char * tmp) {$/;"	f
+title	src/struct_book.c	/^	char  title[50];$/;"	m	struct:Book	file:
+treble_quick	src/_sort.c	/^void treble_quick(int *arr, int start, int end) {$/;"	f
+write_extern	src/support.c	/^void write_extern(void) {$/;"	f

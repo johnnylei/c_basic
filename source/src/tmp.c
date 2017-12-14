@@ -8,7 +8,7 @@ void test(char * tmp) {
 }
 
 int main() {
-	char tmp[1024] = "|-";
+	char *tmp= "|-";
 	test(tmp);
 	return 0;
 }

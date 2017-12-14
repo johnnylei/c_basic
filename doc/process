@@ -1,0 +1,16 @@
+## ps(process snapshot)
+ps -ef
+```
+UID        PID  PPID  C STIME TTY          TIME CMD(命令行)
+root         1     0  0 09:47 ?        00:00:03 /sbin/init splash
+root         2     0  0 09:47 ?        00:00:00 [kthreadd]
+```
+## pkill 是kill进阶版
+pkill -9 helloword #自动查找helloword,而不需要查询pid
+
+## linux前台进程与后台进程
+- 前台进程:关闭终端就会关闭
+- 后台进程:关闭terminate,不会被关闭
+  - nohup [command] &
+  - 在后台运行，没办法接受输入，也没有办法输出了
+  - 用supervisor做后台进程管理

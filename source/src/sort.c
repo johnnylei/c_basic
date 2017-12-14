@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "sort.h"
+#include "../header/sort.h"
 
 void print_arr(int *arr, int size, void (*target)(int *, int));
 void target(int *arr, int size);

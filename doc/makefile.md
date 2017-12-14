@@ -74,7 +74,7 @@ var:
 ## 函数
 ```
 $(函数名 param1, param2, ...)　#函数名只能是makefile内部自带的函数，不能自定义，参数以逗号隔开
-CURRENT_PATH = $(shell pwd) #函数调用
+CURRENT_PATH = $(shell pwd) #函数调用,获取当前路径
 CPP_FILE_LIST = $(wildcard ./*.cpp) #获取(./)路劲下，*.cpp的文件列表
 ```
 ## makefile 优化
@@ -111,7 +111,7 @@ sort:sort.h $(O_FILE_LIST)
     gcc $^ -o sort
 
 %.o:%.c
-    gcc -c $^ -o $@
+    gcc -c $< -o $@
 
 clean:
     rm *.o sort
@@ -122,4 +122,113 @@ clean:
   - 源列表
 ```
 O_FILE_LIST = $(patsubst %.c, %.o, $(C_FILE_LIST))
+```
+step3自动生成头文件依赖
+
+** 使用编译选项，-MMD;g++/gcc在编译xxx.c时，自动提取里面包含的头文件（双引号包含头文件）**
+```
+#include "other.h"
+```
+生成相应的.d文件，在生成main.o的同时，生成一个main.d文件
+```
+gcc -c -MMD main.c -o main.o
+```
+优化之后结果
+```
+SUBDIR = src xml
+SUBDIR += osapi
+C_FILE_LIST = $(wildcard *.c)
+#O_FILE_LIST = $(wilecard *.o)
+O_FILE_LIST = $(patsubst %.c, %.o, $(C_FILE_LIST))
+D_FILE_LIST = $(patsubst %.c, %.d, $(C_FILE_LIST))
+APPLIACTION = sort
+$(APPLIACTION):sort.o _sort.o
+    gcc $^ -o $(APPLIACTION)
+
+%.o:%.c
+    gcc -c -MMD $< -o $@
+
+-include $(D_FILE_LIST)
+
+#sort.o:sort.h
+
+clean:
+    rm -rf *.o *.d $(APPLIACTION)
+
+var:
+    @echo $(SUBDIR)
+
+wild_card:
+    @echo $(C_FILE_LIST)
+    @echo $(O_FILE_LIST)
+```
+
+step4:支持子目录
+- 使用子目录
+```
+SUBDIR=src
+C_FILE_LIST=$(foreach dir, $(SUBDIR), $(wildcard $(dir)/*.c))
+```
+
+编译前文件结构
+```
+├── bin
+├── complied
+├── file_tree
+├── header
+│   └── sort.h
+├── Makefile
+├── sort
+├── src
+│   ├── _sort.c
+│   ├── sort.c
+├── tags
+└── tmp
+```
+
+```
+COMPLIED = complied # complied 相对路径
+SRC = src # src相对路径
+C_FILE_LIST = $(foreach dir, $(SRC), $(wildcard $(dir)/*.c)) # 列出src下面所有c文件
+O_FILE_LIST = $(patsubst $(SRC)/%.c, $(COMPLIED)/%.o, $(C_FILE_LIST)) # 列出complied下面所有.o文件
+D_FILE_LIST = $(patsubst $(SRC)/%.c, $(COMPLIED)/%.d, $(C_FILE_LIST)) # 列出complied下面所有.d文件
+APPLICATION = sort # application name
+APPLICATION_DEPENDENCE = $(COMPLIED)/sort.o $(COMPLIED)/_sort.o # application dependences
+$(APPLICATION):$(APPLICATION_DEPENDENCE)
+    gcc $^ -o $(APPLICATION)
+
+$(COMPLIED)/%.o:$(SRC)/%.c #编译.o文件,依据application dependences 来确定要编译那些.o文件,并且写入到complied文件夹下面
+    gcc -c -MMD $< -o $@
+
+-include $(D_FILE_LIST) # -MMD会自动提取.c文件里面.h文件,写入到.d文件里,这里引入即可
+
+clean:
+    rm -rf *.o *.d $(APPLICATION)
+    rm -rf $(COMPLIED)/*
+
+var: #打印变量
+    @echo $(C_FILE_LIST)
+    @echo $(O_FILE_LIST)
+    @echo $(D_FILE_LIST)
+    @echo $(APPLICATION)
+    @echo $(APPLICATION_DEPENDENCE)
+```
+编译后文件结构
+```
+├── bin
+├── complied
+│   ├── _sort.d
+│   ├── sort.d
+│   ├── _sort.o
+│   └── sort.o
+├── file_tree
+├── header
+│   └── sort.h
+├── Makefile
+├── sort
+├── src
+│   ├── _sort.c
+│   ├── sort.c
+├── tags
+└── tmp
 ```
